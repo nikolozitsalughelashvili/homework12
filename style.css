@@ -1,0 +1,644 @@
+.completed {
+  text-decoration: line-through red;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+#burgermenu {
+  display: none; /*ლეიბლით ვნიშნავთ და აქ აღარ გვჭირდება რომ გამოჩნდეს */
+}
+.menu-label {
+  width: 2.5rem;
+  height: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  display: none; /* @media-ზე გამოჩნდება */
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 101;
+}
+.menu-label span {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #000;
+  transition: all 0.5s ease; /* ანიმაცია */
+}
+
+#burgermenu:checked ~ .menu-label span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+  background-color: red;
+}
+
+/* 5️⃣ ANIMATION - მეორე ხაზი (შუა)
+   
+   მეორე ხაზი უბრალოდ ქრება:
+   - opacity: 0 - სრულიად გამჭვირვალე
+   */
+
+#burgermenu:checked ~ .menu-label span:nth-child(2) {
+  opacity: 0;
+}
+
+/* 6️⃣ ANIMATION - მესამე ხაზი (ქვედა)
+   
+   მესამე ხაზი -45 გრადუსით მბრუნდება:
+   - rotate(-45deg) - უკანა ბრუნი
+   - translate(10px, -10px) - ზემოთ მოგვალიდება
+   
+   შედეგი: X-ის ქვედა ნახევარი
+   
+   კომბინირებული ეფექტი: ≡ ხდება X-ი */
+
+#burgermenu:checked ~ .menu-label span:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -10px);
+  background-color: red;
+}
+
+.mobile-nav {
+  width: 100%;
+  /* height: 110vh; */
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.mobile-nav a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+.mobile-nav a:hover {
+  scale: 1.05;
+  color: rgb(226, 70, 70);
+}
+
+.mobile-nav-socials {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+#burgermenu:checked ~ .mobile-nav {
+  display: flex;
+}
+
+body:has(#burgermenu:checked) {
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  header {
+    margin-top: 5.5rem;
+    padding-top: 1rem;
+    border-top: #000 1px solid;
+  }
+
+  .logo h1 {
+    font-size: 1.4rem;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  /* ბურგერის აიკონი მხოლოდ მობილურზე ჩნდება */
+  .menu-label {
+    display: flex;
+  }
+}
+
+.zedalogo {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+}
+
+.logo {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 7rem;
+  font-weight: bold;
+}
+nav {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+nav a,
+.socqseli {
+  border-right: 1px solid black;
+  padding: 20px;
+  width: 10rem;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  text-wrap: nowrap;
+}
+
+#lupa {
+  padding-right: 150px;
+}
+nav a:nth-child(1) {
+  border-left: 1px solid black;
+}
+
+.socqseli a {
+  border: none !important;
+  padding: 5px;
+  width: 2rem;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  text-wrap: nowrap;
+}
+.selected {
+  font-weight: 700;
+  color: rgb(101, 147, 207);
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.FEATURED_POST {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+}
+.absol {
+  border: 0.1rem solid black;
+  padding: 1rem 3rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 100;
+  letter-spacing: 0.4em;
+  position: absolute;
+  top: -1.75rem;
+  left: -2px;
+  z-index: 2;
+  background-color: white;
+  box-sizing: border-box;
+}
+.suratiani {
+  position: relative;
+  border: 0.1rem solid black;
+  padding-bottom: 3rem;
+  z-index: 1;
+  box-sizing: border-box;
+}
+.suratiani > img {
+  width: 100%;
+}
+
+.suratiani p,
+h2 {
+  margin-left: 2rem;
+}
+.suratiani p:last-child {
+  font-size: 1.2rem;
+}
+.galurjeba {
+  width: 90%;
+}
+
+.galurjeba:hover {
+  color: blue;
+}
+.never {
+  width: 100%;
+  min-height: 20rem;
+  border-top: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.never h1 {
+  margin-bottom: 7rem;
+  font-size: 3rem;
+  text-align: center;
+}
+.email :nth-child(n + 1) {
+  border: none;
+  padding: 1rem;
+}
+#email {
+  border-bottom: 0.1rem solid black;
+}
+.subscribe {
+  width: 10rem;
+  color: white;
+  background-color: rgb(90, 45, 173);
+  cursor: pointer;
+  transition: 1s;
+  margin-left: 1rem;
+}
+.subscribe:hover {
+  background-color: black;
+}
+.mtavari {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 0.1rem solid black;
+}
+.left {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  border-right: 0.1rem solid black;
+  margin-bottom: 3rem;
+}
+
+.mtavari h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.7rem;
+  font-weight: 100;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 35%;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+/* .surati { height: 353px; }*/
+
+.surati_texti {
+  border: 0.1rem solid black;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.texti {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.qvedatexti {
+  width: 90%;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.205);
+}
+.viewcomments {
+  display: flex;
+  gap: 1rem;
+}
+
+.moreposts {
+  width: 10rem;
+  height: 3rem;
+  color: white;
+  background-color: rgb(90, 45, 173);
+  cursor: pointer;
+  transition: 1s;
+  margin-left: 1rem;
+}
+
+.moreposts:hover {
+  background-color: black;
+}
+
+.right p {
+  margin: 2rem 0;
+  width: 282px;
+  line-height: 2rem;
+  font-size: large;
+}
+.right a {
+  margin: 2rem 0;
+  margin-left: -10rem;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+.right a:hover {
+  color: blue;
+}
+.xazi {
+  margin: 2rem 0;
+  width: 282px;
+  height: 0.07rem;
+  background-color: black;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.grid img {
+  width: 7rem;
+  display: block;
+  transition: 0.3s ease;
+}
+.gridimg {
+  position: relative;
+  overflow: hidden;
+}
+.imgcover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.205);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+.imgcover p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.gridimg:hover img {
+  filter: brightness(70%);
+}
+.gridimg:hover .imgcover {
+  opacity: 1;
+}
+.right a:nth-of-type(2) {
+  border-top: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
+  margin: 2rem;
+  padding: 1rem 1.5rem;
+}
+.right i {
+  margin: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.right a:nth-of-type(2):hover {
+  color: black;
+}
+
+.rightemail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+.rightemail :nth-child(n + 1) {
+  height: 2.2rem;
+}
+.rightchecklabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightchecklabel label {
+  margin-top: 1rem;
+}
+.rightsubscribe {
+  border: none;
+  height: 3rem !important;
+  background-color: rgb(95, 5, 179);
+  color: white;
+}
+
+.rightsubscribe:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+}
+.contact {
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  margin: 0 auto;
+}
+
+.isari svg {
+  height: 50px;
+  width: 20px;
+}
+
+.contact h1 {
+  font-weight: bold;
+}
+
+.contact form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.names {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+/*ეს Input-ების ზემოთ რომ სახელები აწერია იმის სტილია*/
+label {
+  color: gray;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+/*ეს კი მესიჯის ჩასაწერი ადგილის სტილია*/
+.messageinput {
+  height: 100px;
+}
+/*ეს როდესაც input-ს ვაჭერთ, გარშემო ბორდერები რო გაუქროს იმის გასტილვაა*/
+input:focus {
+  outline: none;
+}
+/*ეს ფორმის ღილაკის სტილია*/
+.submit {
+  display: block;
+  margin: auto;
+  border: none; /* ამით border-ს ვაუქმებთ*/
+  font-size: 18px;
+  width: 200px; /*სიგრძის ცვლილები*/
+  height: 40px;
+  color: white;
+  background-color: rgba(88, 25, 170, 0.822);
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.copyright {
+  display: flex;
+  background-color: rgba(228, 219, 219, 0.548);
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.copyright p span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 1400px) {
+  .surati_texti {
+    width: 80%;
+  }
+}
+@media (max-width: 1000px) {
+  .never {
+    flex-direction: column;
+    padding-bottom: 5rem;
+  }
+
+  .surati_texti {
+    flex-direction: column;
+  }
+
+  .surati_texti > img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+  }
+  .texti {
+    padding: 1rem;
+  }
+  .qvedatexti {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .logo {
+    font-size: 5rem;
+  }
+  .zedalogo {
+    font-size: 1.2rem;
+  }
+
+  .suratiani {
+    width: 90%;
+  }
+  .suratiani img {
+    width: 100% ;
+    height: auto ;
+  }
+  .mtavari {
+    flex-direction: column;
+  }
+  .left {
+    border-right: none;
+    width: 100%;
+    margin-bottom: 50px !important;
+  }
+  .right {
+    width: 100%;
+    margin-bottom: 50px !important;
+    text-align: center;
+  }
+
+  .right > img,
+  .right > p,
+  .xazi {
+    width: 80%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    margin-top: 5rem;
+  }
+  .logo {
+    font-size: 4rem;
+  }
+  .zedalogo {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact {
+    height: 700px;
+  }
+
+  .contact h1 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .names {
+    flex-direction: column;
+  }
+  .never h1 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+  }
+}

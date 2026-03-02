@@ -1,13 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="style.css" />
-    <script src="app.js" defer></script>
-    <title>homework12</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- ეს გუგლის ფონტების ლინკებია, რომელიც გვჭირდება რომ ვებგვერდზე გამოვიყენოთ Work Sans ფონტი -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Gruppo&family=Lobster&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        />
+
+        <!-- ასევე მოგვაქვს Font Awesome-ის ლინკი რომ გამოვიყენოთ მათი აიკონები -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+        <title>homework12</title>
+      </head>
+      <body>
+        <input type="checkbox" id="burgermenu" />
+        <label for="burgermenu" class="menu-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div class="mobile-nav">
+          <a href="#index.html">Home</a>
+          <a href="#about.html">About</a>
+          <a href="#myblog.html">My Blog</a>
+          <a href="#contact">Contact</a>
+          <a href="#login.html">Login</a>
+          <a href="#grid/grid.html">Grid</a>
+          <!-- <a href="404.html">404</a> -->
+          <div class="mobile-nav-socials">
+            <a
+              href="https://www.google.com/webhp"
+              class="fa-solid fa-magnifying-glass"
+            ></a>
+            <a
+              href="https://www.facebook.com/"
+              class="fa-brands fa-facebook-f"
+            ></a>
+            <a
+              href="https://www.instagram.com/"
+              class="fa-brands fa-instagram"
+            ></a>
+            <a href="https://x.com/" class="fa-brands fa-twitter"></a>
+            <a
+              href="https://www.pinterest.com/"
+              class="fa-brands fa-pinterest-p"
+            ></a>
+          </div>
+        </div>
+
+        <header>
+          <div class="zedalogo">
+            EVERYTHING IS PERSONAL. INCLUDING THIS BLOG.
+          </div>
+          <div class="logo">Train of Thought</div>
+          <nav class="navbar">
+            <a href="#index.html" class="selected">Home</a>
+            <a href="#about.html">About</a>
+            <a href="#myblog.html">My Blog</a>
+            <a href="#contact">Contact</a>
+            <a
+              href="https://www.google.com/webhp"
+              class="fa-solid fa-magnifying-glass"
+              id="lupa"
+            ></a>
+            <div class="socqseli">
+              <a
+                href="https://www.facebook.com/"
+                class="fa-brands fa-facebook-f"
+              ></a>
+              <a
+                href="https://www.instagram.com/"
+                class="fa-brands fa-instagram"
+              ></a>
+              <a href="https://x.com/" class="fa-brands fa-twitter"></a>
+              <a
+                href="https://www.pinterest.com/"
+                class="fa-brands fa-pinterest-p"
+              ></a>
+            </div>
+            <a href="#login.html">Login</a>
+            <a href="#grid/grid.html">Grid</a>
+            <!-- <a href="404.html">404</a> -->
+          </nav>
+        </header>
+
+        <h1>Todo App</h1>
+        <input type="text" id="taskInput" />
+        <button id="addBtn">დამატება</button>
+        <ul id="taskList"></ul>
+
+        <footer id="contact">
+          <section class="contact">
+            <div class="isari">
+              <svg
+                preserveAspectRatio="none"
+                data-bbox="72.5 20 55 160"
+                viewBox="72.5 20 55 160"
+                height="200"
+                width="200"
+                xmlns="http://www.w3.org/2000/svg"
+                data-type="shape"
+                role="img"
+                aria-label="Back to top"
+                wixshapeid="9a75abcd83524a1a9b048847ed30cd3b.svg"
+              >
+                <g>
+                  <path
+                    d="M127.5 49.186L100 20 72.5 49.186l2.957 2.808 22.116-23.476V180h4.854V28.518l22.116 23.476 2.957-2.808z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <h1>Drop Me a Line, Let Me Know What You Think</h1>
+
+            <!-- ეს ფორმის დასაწყისია, სადაც არის სხვადასხვა ველები სახელის, ელფოსტის და მესიჯის შესასვლელად -->
+
+            <form action="">
+              <div class="names">
+                <div class="form-group">
+                  <!-- ეს სახელის ველია, სადაც შეგვიძლია ჩავწეროთ სახელი -->
+                  <label for="fname">First Name *</label>
+
+                  <input
+                    class="fname"
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    required
+                  />
+                  <!-- ეს required ნიშნავს რომ ველი სავალდებულოა და არ იმუშავებს ფორმა თუ ეს ველი ცარიელია -->
+                </div>
+                <div class="form-group">
+                  <!-- ეს გვარის ველია, სადაც შეგვიძლია ჩავწეროთ გვარი -->
+                  <label for="lname">Last Name *</label>
+
+                  <input
+                    class="lname"
+                    type="text"
+                    id="lname"
+                    name="lname"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- ეს იმეილის ველია, სადაც შეგვიძლია ჩავწეროთ იმეილი -->
+              <div class="form-group">
+                <label for="emailId">Email *</label>
+                <input
+                  class="emailinput"
+                  type="email"
+                  id="emailId"
+                  name="email"
+                  required
+                />
+              </div>
+
+              <div class="message form-group">
+                <!-- ეს მესიჯის ველია, სადაც შეგვიძლია ჩავწეროთ მესიჯი, სპეციალური თეგი გამოვიყენეთ დიდი ადგილისთვის -->
+                <label for="message">message...</label>
+
+                <textarea
+                  class="messageinput"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <!-- ეს კი ფორმის გასაშვები ღილაკია -->
+              <button class="submit" type="submit">Submit</button>
+            </form>
+          </section>
+
+          <!-- ეს კი ბოლოსართის ბოლო ნაწილი სადაც არის კოპირაითი -->
+          <section class="copyright">
+            <p>
+              © 2035 by Train of Thoughts. Powered and secured by
+              <span>Wix</span>
+            </p>
+          </section>
+        </footer>
+      </body>
+    </html>
+    <!--<button id="btn">button</button>
+     <div>
+        <span>span</span>
+     </div>-->
+  </head>
 </html>
